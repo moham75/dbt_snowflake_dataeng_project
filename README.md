@@ -1,33 +1,61 @@
-End-to-End Data Engineering Project: dbt, Snowflake & Apache Airflow
-Overview
-This project is a complete data engineering pipeline using dbt (Data Build Tool), Snowflake (Data Warehouse), and Apache Airflow (Orchestration Tool). It covers data ingestion, transformation, and scheduling in a structured and scalable manner.
+# End-to-End Data Engineering Project: dbt, Snowflake & Apache Airflow
 
-Tech Stack
-dbt Core – For data transformation and modeling
-Snowflake – Cloud-based data warehouse
-Apache Airflow – Workflow automation and orchestration
-Python – Scripting and automation
-Git – Version control
-Project Structure
- snowflake_data_project/
-│──  models/                 # dbt models (staging, marts)
-│──  dags/                   # Airflow DAGs (for scheduling)
-│──  logs/                   # Airflow logs
-│──  seeds/                  # Sample seed data for dbt
-│──  macros/                 # dbt macros
-│──  dbt_project.yml         # dbt project config file
-│──  README.md               # Project documentation
-Setup & Installation
-Clone the Repository
-git clone https://github.com/ansamAY/dbt_snowflake_project.git
-cd your-repo-name
-Set Up a Virtual Environment
+## 📌 Overview
+This project is a complete data engineering pipeline using **dbt**, **Snowflake**, and **Apache Airflow**.  
+It covers data ingestion, transformation, and workflow scheduling in a structured, scalable way.
 
+---
+
+## 🛠 Tech Stack
+- **dbt Core** – Data transformation & modeling  
+- **Snowflake** – Cloud-based data warehouse  
+- **Apache Airflow** – Workflow automation & orchestration  
+- **Python** – Scripting & automation  
+- **Git** – Version control  
+
+---
+
+## 📁 Project Structure
+
+```
+snowflake_dataeng_project/
+│── models/                 # dbt models (staging, marts)
+│── dags/                   # Airflow DAGs (for scheduling)
+│── logs/                   # Airflow logs
+│── seeds/                  # Seed data for dbt
+│── macros/                 # dbt macros
+│── dbt_project.yml         # dbt project config file
+│── README.md               # Project documentation
+```
+
+---
+
+## 🧰 Set Up a Virtual Environment
+
+**Mac / Linux**
+```bash
 python -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate     # Windows
-Configure dbt Connection to Snowflake Update the profiles.yml file located in ~/.dbt/ with your Snowflake credentials:
+source venv/bin/activate
+```
 
+**Windows**
+```powershell
+python -m venv venv
+venv\Scripts\activate
+```
+
+---
+
+## ❄️ Configure dbt Connection to Snowflake
+
+Update the `profiles.yml` file located in:
+
+- **Mac/Linux:** `~/.dbt/profiles.yml`  
+- **Windows:** `C:\Users\<username>\.dbt\profiles.yml`
+
+Use this configuration:
+
+```yaml
 snowflake_project:
   outputs:
     dev:
@@ -40,10 +68,23 @@ snowflake_project:
       schema: raw
       type: snowflake
   target: dev
-Run dbt Models
+```
 
+---
+
+## 🏗 Run dbt Models
+
+```bash
 dbt run
-dbt test  # To validate data integrity
-Start Apache Airflow
+dbt test        # Validates data integrity
+```
 
-airflow standalone  # Starts the UI & Scheduler
+---
+
+## 🚀 Start Apache Airflow
+
+```bash
+airflow standalone        # Starts the UI & Scheduler
+```
+
+---
